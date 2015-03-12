@@ -7,6 +7,10 @@ var companySchema = new mongoose.Schema({
     description: String,
     phone: String,
     address: String,
+    addressTwo: String,
+    city: String,	
+    country: String,	
+    zippc: String, 
     logo: String
 });
 

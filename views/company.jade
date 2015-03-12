@@ -4,7 +4,7 @@ block content
   .page-header
     h3 All companys
 
-  table.table
+  table.table.table-striped
     thead
       tr
         th Name
@@ -13,17 +13,27 @@ block content
         th Description
         th Phone
         th Address
+        th Address 	
+        th City	
+        th Country	
+        th Zip or Post Code
         th Logo
     tbody
       for company in companys
-        tr.info
-          td= company.name
-          th= company.website
-          th= company.email
-          th= company.description
-          th= company.phone
-          th= company.address
-          th= company.logo
+        tr
+          th= company.name
+          td
+            a.btn.btn-default(href=company.website) 
+              =company.website 
+          td= company.email
+          td= company.description
+          td= company.phone
+          td= company.address
+          td= company.addressTwo	
+          td= company.city	
+          td= company.country	
+          td= company.zippc 
+          td= company.logo
 
   .company-form
     h3 Company Form
@@ -53,7 +63,24 @@ block content
     .form-group
       label(class='col-sm-2 control-label', for='address') Address
       .col-sm-8
-        textarea.form-control( name='address', id='address', rows='5')
+        input.form-control(type='text', name='address', id='address')
+    .form-group
+      label(class='col-sm-2 control-label', for='addressTwo') Address
+      .col-sm-8
+        input.form-control(type='text', name='addressTwo', id='addressTwo')
+    .form-group
+      label(class='col-sm-2 control-label', for='city') City
+      .col-sm-8
+        input.form-control(type='text', name='city', id='city')
+    .form-group
+      label(class='col-sm-2 control-label', for='Country') Country
+      .col-sm-8
+        textarea.form-control( name='country', id='country')
+    .form-group
+      label(class='col-sm-2 control-label', for='zippc') Zip or Post Code
+      .col-sm-8
+        input.form-control(type='text', name='zippc', id='zippc')
+
     .form-group
       label(class='col-sm-2 control-label', for='logo') Logo
       .col-sm-8

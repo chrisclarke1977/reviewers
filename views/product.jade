@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .page-header
+    h3 All Products
+
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th link
+        th sku
+    tbody
+      for product in products
+        tr
+          td= product.name
+          td
+            a(href=product.link)
+              = product.link
+          td= product.sku
+
+  .tracker-form
+    h3 Product Form
+
+  form.form-horizontal(role='form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='name') Name
+      .col-sm-8
+        input.form-control(type='text', name='name', id='name')
+    .form-group
+      label(class='col-sm-2 control-label', for='description') link
+      .col-sm-8
+        input.form-control(type='text', name='link', id='link')
+    .form-group
+      label(class='col-sm-2 control-label', for='sku') SKU
+      .col-sm-8
+        input.form-control(type='text', name='sku', id='sku')
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          span.ion-disc
+          | Save

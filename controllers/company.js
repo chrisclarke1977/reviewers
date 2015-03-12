@@ -32,6 +32,10 @@ exports.createCompany = function(req, res, next) {
     "description": req.body.description,
     "phone": req.body.phone,
     "address": req.body.address,
+    "addressTwo": req.body.addressTwo,
+    "city": req.body.city,
+    "country": req.body.country,
+    "zippc": req.body.zippc,
     "logo": req.body.logo
   };
     

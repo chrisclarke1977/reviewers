@@ -19,6 +19,8 @@
           a(href='/tracker') Tracker
         li(class=title=='Company'?'active':undefined)
           a(href='/company') Company
+        li(class=title=='Products'?'active':undefined)
+          a(href='/product') Products
         if user && user.email == 'reviewers1337@gmail.com'
           li(class=title=='Users'?'active':undefined)
             a(href='/userlist') User List 

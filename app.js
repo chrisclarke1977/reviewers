@@ -30,6 +30,7 @@ var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 var trackerController = require('./controllers/tracker');
 var companyController = require('./controllers/company');
+var productController = require('./controllers/product');
 /**
  * API keys and Passport configuration.
  */
@@ -153,6 +154,12 @@ app.route('/company')
   .post(companyController.createCompany)
   .put(companyController.updateCompany)
   .delete(companyController.deleteCompany);
+
+app.route('/product')
+  .get(productController.getProduct)
+  .post(productController.createProduct)
+  .put(productController.updateProduct)
+  .delete(productController.deleteProduct);
 
 
 /**

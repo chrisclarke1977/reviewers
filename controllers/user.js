@@ -23,6 +23,7 @@ exports.getAll = function(req, res){
 
   User.find(function(err, docs) {
     res.render('userlist', {
+      title: "Users",
       users: docs 
     });
   });
