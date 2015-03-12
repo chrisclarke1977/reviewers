@@ -18,6 +18,16 @@ exports.getLogin = function(req, res) {
   });
 };
 
+exports.getAll = function(req, res){
+  if (req.user.email !== 'nitrix@ntlworld.com') return res.redirect('/');
+
+  User.find(function(err, docs) {
+    res.render('userlist', {
+      users: docs 
+    });
+  });
+};
+
 /**
  * POST /login
  * Sign in using email and password.
@@ -135,6 +145,16 @@ exports.postUpdateProfile = function(req, res, next) {
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
+    user.profile.youTube = req.body.youTube || '';
+    user.profile.facebookPage = req.body.facebookPage || '';
+    user.profile.picture = req.body.picture || '';
+    user.profile.address = req.body.address || '';
+    user.profile.addressTwo = req.body.addressTwo || '';
+    user.profile.city = req.body.city || '';
+    user.profile.country = req.body.country || '';
+    user.profile.zippc = req.body.zippc || '';
+    user.profile.dob = req.body.dob || '';
+    user.profile.desc = req.body.desc || '';
 
     user.save(function(err) {
       if (err) return next(err);

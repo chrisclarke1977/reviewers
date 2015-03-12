@@ -19,7 +19,16 @@ var userSchema = new mongoose.Schema({
     gender: { type: String, default: '' },
     location: { type: String, default: '' },
     website: { type: String, default: '' },
-    picture: { type: String, default: '' }
+    youTube: { type: String, default: '' },
+    facebookPage: { type: String, default: '' },
+    picture: { type: String, default: '' },
+    address: { type: String, default: '' },
+    addressTwo: { type: String, default: '' },
+    city: { type: String, default: '' },
+    country: { type: String, default: '' },
+    zippc: { type: String, default: '' },
+    dob: { type: String, default: '' },
+    desc: { type: String, default: '' },
   },
 
   resetPasswordToken: String,

@@ -8,13 +8,18 @@
         span.icon-bar
       a.navbar-brand(href='/')
         span.ion-cube
-        | Project name
+        | Reeve Youer
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=title=='Home'?'active':undefined)
           a(href='/') Home
         li(class=title=='Contact'?'active':undefined)
           a(href='/contact') Contact
+        li(class=title=='Tracker'?'active':undefined)
+          a(href='/tracker') Tracker
+        if user && user.profile.email == 'reviewers1337@gmail.com'
+          li(class=title=='Users'?'active':undefined)
+            a(href='/userlist') User List 
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=title=='Login'?'active':undefined)

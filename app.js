@@ -28,7 +28,7 @@ var connectAssets = require('connect-assets');
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
-
+var trackerController = require('./controllers/tracker');
 /**
  * API keys and Passport configuration.
  */
@@ -125,6 +125,27 @@ app.post('/account/profile', passportConf.isAuthenticated, userController.postUp
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+
+app.route('/auth/tracker')
+  .get( trackerController.checkAuth )
+  .post( trackerController.createTracker );
+
+/*app.route("/drop/tracks")
+  .get(
+    function(){ 
+      mongoose.connection.db.dropCollection("trackers");
+  });
+*/
+app.route('/userlist')
+  .get(userController.getAll);
+
+app.route('/tracker')
+  .all(passportConf.isAuthenticated)
+  .all(passportConf.isAuthorized)
+  .get(trackerController.getTracker)
+  .post(trackerController.createTracker)
+  .put(trackerController.updateTracker)
+  .delete(trackerController.deleteTracker);
 
 /**
  * OAuth sign-in routes.

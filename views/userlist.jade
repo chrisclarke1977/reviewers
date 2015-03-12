@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .page-header
+    h3 All Users
+
+  table.table
+    thead
+     tr
+        td name 
+        td email 
+        td gender 
+        td website 
+        td youTube 
+        td facebookPage  
+        td picture  
+        td address  
+        td addressTwo  
+        td city  
+        td country  
+        td zippc  
+        td dob  
+        td desc
+    tbody
+    for u in users
+      tr
+        td= u.profile.name 
+        td= u.email
+        td= u.profile.gender 
+        td= u.profile.website 
+        td= u.profile.youTube 
+        td= u.profile.facebookPage  
+        td= u.profile.picture  
+        td= u.profile.address  
+        td= u.profile.addressTwo  
+        td= u.profile.city  
+        td= u.profile.country  
+        td= u.profile.zippc  
+        td= u.profile.dob  
+        td= u.profile.desc
+      

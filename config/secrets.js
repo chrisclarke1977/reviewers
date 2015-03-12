@@ -23,8 +23,8 @@ module.exports = {
   sessionSecret: process.env.SESSION_SECRET || 'session secret can be anything',
 
   sendgrid: {
-    user: process.env.SENDGRID_USER || 'your username',
-    password: process.env.SENDGRID_PASSWORD || 'your password'
+    user: process.env.SENDGRID_USER || 'reeveyouer',
+    password: process.env.SENDGRID_PASSWORD || 'spunkyfish69'
   },
 
   facebook: {
@@ -46,5 +46,11 @@ module.exports = {
     clientSecret: process.env.GOOGLE_SECRET || 'your google client secret',
     callbackURL: '/auth/google/callback',
     passReqToCallback: true
+  },
+  github: {
+    clientID: "ef7a5e883ebc29bf7b86",
+    clientSecret: "5e07273aae32ca3d8551abff888ab185f82fd1de",
+    callbackURL: '/auth/github/callback'
   }
-};
+    
+  };

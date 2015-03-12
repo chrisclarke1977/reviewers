@@ -42,9 +42,9 @@ exports.postContact = function(req, res) {
   var from = req.body.email;
   var name = req.body.name;
   var body = req.body.message;
-  var to = 'your email goes here';
-  var subject = 'Contact Form | Hackathon Starter';
-csw5
+  var to = 'reviewers1337@gmail.com';
+  var subject = 'Contact Form';
+
   var mailOptions = {
     to: to,
     from: from,

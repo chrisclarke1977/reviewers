@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  .page-header
+    h3 All Trackers
+
+  table.table
+    thead
+      tr
+        th Reference
+        th Problems
+        th Email
+        th Arrived
+    tbody
+      for tracker in trackers
+        if tracker.arrived
+          tr.success
+            td= tracker.ref
+            td= tracker.problems
+            td= tracker.email
+            td.ion-thumbsup
+        else 
+          tr.danger
+            td= tracker.ref
+            td= tracker.problems
+            td= tracker.email
+            td.ion-thumbsdown
+
+  .tracker-form
+    h3 Tracker Form
+
+  form.form-horizontal(role='form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='ref') Reference
+      .col-sm-8
+        input.form-control(type='text', name='ref', id='ref')
+    .form-group
+      label(class='col-sm-2 control-label', for='arrived') Arrived
+      .col-sm-8
+        label.radio
+          input(type='radio', checked='true', name='arrived', value='true', data-toggle='radio')
+          span Yes
+        label.radio
+          input(type='radio', name='arrived', value='false', data-toggle='radio')
+          span No
+    .form-group
+      label(class='col-sm-2 control-label', for='problems') Problems?
+      .col-sm-8
+        textarea.form-control( name='problems', id='problems', rows='5')
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          span.ion-disc
+          | Save
