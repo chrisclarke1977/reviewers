@@ -17,7 +17,9 @@
           a(href='/contact') Contact
         li(class=title=='Tracker'?'active':undefined)
           a(href='/tracker') Tracker
-        if user && user.profile.email == 'reviewers1337@gmail.com'
+        li(class=title=='Company'?'active':undefined)
+          a(href='/company') Company
+        if user && user.email == 'reviewers1337@gmail.com'
           li(class=title=='Users'?'active':undefined)
             a(href='/userlist') User List 
       ul.nav.navbar-nav.navbar-right

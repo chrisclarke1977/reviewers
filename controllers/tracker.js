@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 exports.getTracker = function(req, res) {
   Tracker.find(function(err, docs) {
-    res.render('tracker', { trackers: docs });
+    res.render('tracker', { trackers: docs, title: 'Tracker' });
   });
 };
 
@@ -18,7 +18,7 @@ exports.checkAuth = function(req, res) {
    // if(req.user.email == 'reviewers1337@gmail.com') return res.redirect('/');
     
   Tracker.find(function(err, docs) {
-    res.render('tracker', { trackers: docs });
+    res.render('tracker', { trackers: docs, title: 'Tracker' });
   });
 };
 

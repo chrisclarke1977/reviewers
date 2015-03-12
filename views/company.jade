@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  .page-header
+    h3 All companys
+
+  table.table
+    thead
+      tr
+        th Name
+        th Website
+        th Email
+        th Description
+        th Phone
+        th Address
+        th Logo
+    tbody
+      for company in companys
+        tr.info
+          td= company.name
+          th= company.website
+          th= company.email
+          th= company.description
+          th= company.phone
+          th= company.address
+          th= company.logo
+
+  .company-form
+    h3 Company Form
+
+  form.form-horizontal(role='form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='name') Name
+      .col-sm-8
+        input.form-control(type='text', name='name', id='name')
+    .form-group
+      label(class='col-sm-2 control-label', for='website') Website
+      .col-sm-8
+        input.form-control(type='text', name='website', id='website')
+    .form-group
+      label(class='col-sm-2 control-label', for='email') Email
+      .col-sm-8
+        input.form-control(type='text', name='email', id='email')
+    .form-group
+      label(class='col-sm-2 control-label', for='description') Description
+      .col-sm-8
+        textarea.form-control( name='description', id='description', rows='5')
+    .form-group
+      label(class='col-sm-2 control-label', for='phone') Phone
+      .col-sm-8
+        input.form-control(type='text', name='phone', id='phone')
+    .form-group
+      label(class='col-sm-2 control-label', for='address') Address
+      .col-sm-8
+        textarea.form-control( name='address', id='address', rows='5')
+    .form-group
+      label(class='col-sm-2 control-label', for='logo') Logo
+      .col-sm-8
+        textarea.form-control( name='logo', id='logo')
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          span.ion-disc
+          | Save

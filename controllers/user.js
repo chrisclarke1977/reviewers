@@ -19,7 +19,7 @@ exports.getLogin = function(req, res) {
 };
 
 exports.getAll = function(req, res){
-  if (req.user.email !== 'nitrix@ntlworld.com') return res.redirect('/');
+  if (req.user.email !== 'reviewers1337@gmail.com') return res.redirect('/');
 
   User.find(function(err, docs) {
     res.render('userlist', {

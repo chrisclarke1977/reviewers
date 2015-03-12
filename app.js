@@ -29,6 +29,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 var trackerController = require('./controllers/tracker');
+var companyController = require('./controllers/company');
 /**
  * API keys and Passport configuration.
  */
@@ -146,6 +147,13 @@ app.route('/tracker')
   .post(trackerController.createTracker)
   .put(trackerController.updateTracker)
   .delete(trackerController.deleteTracker);
+
+app.route('/company')
+  .get(companyController.getCompany)
+  .post(companyController.createCompany)
+  .put(companyController.updateCompany)
+  .delete(companyController.deleteCompany);
+
 
 /**
  * OAuth sign-in routes.
