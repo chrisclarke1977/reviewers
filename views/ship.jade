@@ -1,0 +1,69 @@
+extends layout
+
+block content
+  .page-header
+    h3 All Shipments
+
+  table.table
+    thead
+      tr
+        th ref 
+        th products
+        th date
+        th user
+        th company
+        th posttracker
+        th email
+    tbody
+    for u in ships
+      tr
+        td= u.ref 
+        td= u.products
+        td= u.date
+        td= u.user
+        td= u.company
+        td= u.posttracker
+        td= e.email
+
+  .page-header
+    h3 Send a shipment
+
+  form.form-horizontal(action='/account/profile', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-2.control-label(for='ref') ref
+      .col-sm-4
+        input.form-control(type='text', name='ref', id='ref')
+    .form-group
+      label.col-sm-2.control-label(for='products') products
+      .col-sm-4
+        input.form-control(type='text', name='products', id='products')
+    .form-group
+      label.col-sm-2.control-label(for='date') date
+      .col-sm-4
+        input.form-control(type='text', name='date', id='date')
+    .form-group
+      label.col-sm-2.control-label(for='user') User
+      .col-sm-4
+        input.form-control(type='text', name='user', id='user')
+    .form-group
+      label.col-sm-2.control-label(for='posttracker') Post Tracker
+      .col-sm-4
+        input.form-control(type='text', name='posttracker', id='posttracker')
+    .form-group
+      label.col-sm-2.control-label(for='email') Send Confirmation email
+      .col-sm-8
+        label.radio
+          input(type='radio',  name='email', vale='true', data-toggle='radio')
+          span Send
+      .col-sm-8
+        label.radio
+          input(type='radio', name='email', value="false", data-toggle='radio')
+          span Do not Send
+          
+
+    .form-group
+      .col-sm-offset-2.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          span.ion-paper-airplane
+          | Send Shipment

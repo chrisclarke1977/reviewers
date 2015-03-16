@@ -7,6 +7,16 @@ block content
   form.form-horizontal(action='/account/profile', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
+      label.col-sm-2.control-label(for='type') Type
+      .col-sm-4
+        label.radio
+          input(type='radio', checked=user.type=='rep',name='type', value='company', data-toggle='radio')
+          span Company
+        label.radio
+          input(type='radio', checked=user.type=='reviewer', name='type', value='reviewer', data-toggle='radio')
+          span Reviewer
+
+    .form-group
       label.col-sm-2.control-label(for='email') Email
       .col-sm-4
         input.form-control(type='email', name='email', id='email', value='#{user.email}')

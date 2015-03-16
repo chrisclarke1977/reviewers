@@ -8,6 +8,7 @@ block content
     thead
      tr
         td name 
+        td Type 
         td email 
         td gender 
         td website 
@@ -25,12 +26,14 @@ block content
     for u in users
       tr
         td= u.profile.name 
+        td= u.type
         td= u.email
         td= u.profile.gender 
         td= u.profile.website 
         td= u.profile.youTube 
         td= u.profile.facebookPage  
-        td= u.profile.picture  
+        td
+          img(src=u.profile.picture, width='32', height='32')  
         td= u.profile.address  
         td= u.profile.addressTwo  
         td= u.profile.city  

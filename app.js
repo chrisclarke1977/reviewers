@@ -31,6 +31,8 @@ var contactController = require('./controllers/contact');
 var trackerController = require('./controllers/tracker');
 var companyController = require('./controllers/company');
 var productController = require('./controllers/product');
+var shipController = require('./controllers/ship');
+
 /**
  * API keys and Passport configuration.
  */
@@ -161,6 +163,12 @@ app.route('/product')
   .put(productController.updateProduct)
   .delete(productController.deleteProduct);
 
+app.route('/ship')
+  .get(shipController.getShip)
+  .post(shipController.createShip)
+  .put(shipController.updateShip)
+  .delete(shipController.deleteShip);
+
 
 /**
  * OAuth sign-in routes.
@@ -176,6 +184,10 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 });
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
+app.get('/auth/github', passport.authenticate('github'));
+app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
 

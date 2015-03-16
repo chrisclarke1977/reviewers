@@ -8,7 +8,7 @@
         span.icon-bar
       a.navbar-brand(href='/')
         span.ion-cube
-        | Reeve Youer
+        | ReeveYou
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=title=='Home'?'active':undefined)
@@ -21,6 +21,8 @@
           a(href='/company') Company
         li(class=title=='Products'?'active':undefined)
           a(href='/product') Products
+        li(class=title=='Ships'?'active':undefined)
+          a(href='/ship') Shipment
         if user && user.email == 'reviewers1337@gmail.com'
           li(class=title=='Users'?'active':undefined)
             a(href='/userlist') User List 
